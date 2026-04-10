@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preceptor - Boletas Digitales</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <svg class="school-icon" width="40" height="40" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" stroke-width="2"/>
+                        <path d="M2 17L12 22L22 17" stroke="white" stroke-width="2"/>
+                        <path d="M2 12L12 17L22 12" stroke="white" stroke-width="2"/>
+                    </svg>
+                    <h1>Boletas Digitales</h1>
+                </div>
+                
+                <div class="user-menu">
+                    <div class="user-info">
+                        <span class="user-name">Prof. Ana García</span>
+                        <span class="user-role">Preceptora</span>
+                    </div>
+                    <button class="btn-logout" onclick="logout()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 17L21 12L16 7" stroke="currentColor" stroke-width="2"/>
+                            <path d="M21 12H9" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Salir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="dashboard-container">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <h2>Bienvenida, Prof. Ana García</h2>
+                <p class="welcome-subtitle">Preceptora de 4°2 Informática</p>
+            </div>
+
+            <!-- Courses Section -->
+            <div class="courses-section">
+                <div class="section-header">
+                    <h2> Mis Cursos a Cargo</h2>
+                </div>
+
+                <div class="courses-grid">
+                    <!-- Course Card 1 -->
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>4°2 Informática</h3>
+                            <span class="course-badge">Superior - Informática</span>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-stats">
+                                <div class="stat-item">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="#2563eb" stroke-width="2"/>
+                                        <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="#2563eb" stroke-width="2"/>
+                                        <path d="M23 21V19C22.9993 17.9391 22.5775 16.9219 21.8274 16.1722C21.0772 15.4225 20.0598 15.0017 19 15H15" stroke="#2563eb" stroke-width="2"/>
+                                        <path d="M17 3C18.6569 3 20 4.34315 20 6C20 7.65685 18.6569 9 17 9" stroke="#2563eb" stroke-width="2"/>
+                                    </svg>
+                                    <span><strong>25</strong> alumnos</span>
+                                </div>
+                                <div class="stat-item">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="#2563eb" stroke-width="2"/>
+                                    </svg>
+                                    <span><strong>7</strong> materias</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="course-footer">
+                            <button class="btn-primary" onclick="viewCourse('4-2-informatica')">
+                                Ver Alumnos
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Course Card 2 -->
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>5°2 Informática</h3>
+                            <span class="course-badge">Superior - Informática</span>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-stats">
+                                <div class="stat-item">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="#2563eb" stroke-width="2"/>
+                                        <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="#2563eb" stroke-width="2"/>
+                                        <path d="M23 21V19C22.9993 17.9391 22.5775 16.9219 21.8274 16.1722C21.0772 15.4225 20.0598 15.0017 19 15H15" stroke="#2563eb" stroke-width="2"/>
+                                        <path d="M17 3C18.6569 3 20 4.34315 20 6C20 7.65685 18.6569 9 17 9" stroke="#2563eb" stroke-width="2"/>
+                                    </svg>
+                                    <span><strong>22</strong> alumnos</span>
+                                </div>
+                                <div class="stat-item">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="#2563eb" stroke-width="2"/>
+                                    </svg>
+                                    <span><strong>8</strong> materias</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="course-footer">
+                            <button class="btn-primary" onclick="viewCourse('5-2-informatica')">
+                                Ver Alumnos
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <div class="section-header">
+                    <h2>⚡ Acciones Rápidas</h2>
+                </div>
+                <div class="actions-grid">
+                    <button class="action-btn" onclick="viewAllGrades()">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" stroke="#10b981" stroke-width="2"/>
+                            <path d="M14 2V8H20" stroke="#10b981" stroke-width="2"/>
+                            <path d="M16 13H8" stroke="#10b981" stroke-width="2"/>
+                            <path d="M16 17H8" stroke="#10b981" stroke-width="2"/>
+                            <path d="M10 9H8" stroke="#10b981" stroke-width="2"/>
+                        </svg>
+                        <span>Ver Todas las Notas</span>
+                    </button>
+                    <button class="action-btn" onclick="exportAll()">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="#8b5cf6" stroke-width="2"/>
+                            <path d="M7 10L12 15L17 10" stroke="#8b5cf6" stroke-width="2"/>
+                            <path d="M12 15V3" stroke="#8b5cf6" stroke-width="2"/>
+                        </svg>
+                        <span>Exportar Todo</span>
+                    </button>
+                    <button class="action-btn" onclick="generateReport()">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 21H15C20 21 21 20 21 15V9C21 4 20 3 15 3H9C4 3 3 4 3 9V15C3 20 4 21 9 21Z" stroke="#f59e0b" stroke-width="2"/>
+                            <path d="M9 10H15" stroke="#f59e0b" stroke-width="2"/>
+                            <path d="M9 14H15" stroke="#f59e0b" stroke-width="2"/>
+                            <path d="M9 18H13" stroke="#f59e0b" stroke-width="2"/>
+                        </svg>
+                        <span>Generar Reporte</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/preceptor.js"></script>
+</body>
+</html>

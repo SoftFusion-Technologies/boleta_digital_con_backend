@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Boleta - Boletas Digitales</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+<header class="main-header">
+    <div class="container">
+        <div class="header-content">
+            <div class="logo-section">
+                <h1>Boletas Digitales</h1>
+            </div>
+
+            <div class="user-menu">
+                <div class="user-info">
+                    <span class="user-name" id="nombreUsuario"></span>
+                    <span class="user-role">Alumno</span>
+                </div>
+                <button class="btn-logout" onclick="logout()">Salir</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="dashboard-container">
+
+        <!-- INFO ALUMNO -->
+        <div class="info-card">
+            <div class="card-header">
+                <h2>Información del Alumno</h2>
+            </div>
+            <div class="card-body">
+                <div class="student-details">
+
+                    <div class="detail-row">
+                        <span class="detail-label">Nombre:</span>
+                        <span class="detail-value" id="nombreAlumno"></span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- BOLETA -->
+        <div class="report-card">
+            <div class="card-header">
+                <h2>Boleta de Calificaciones</h2>
+            </div>
+
+            <div class="grades-container">
+                <table class="grades-table">
+                    <thead>
+                        <tr>
+                            <th>Materia</th>
+                            <th>1° Trim</th>
+                            <th>2° Trim</th>
+                            <th>3° Trim</th>
+                            <th>Promedio</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaNotas"></tbody>
+                </table>
+            </div>
+
+            <div class="final-average">
+                <h3>Promedio General: <span id="promedioGeneral"></span></h3>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="../js/main.js"></script>
+<script src="../js/alumno.js"></script>
+
+</body>
+</html>

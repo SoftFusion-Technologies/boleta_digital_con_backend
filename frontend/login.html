@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Boletas Digitales</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="login-body">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <div class="school-logo">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#2563eb" stroke-width="2"/>
+                        <path d="M2 17L12 22L22 17" stroke="#2563eb" stroke-width="2"/>
+                        <path d="M2 12L12 17L22 12" stroke="#2563eb" stroke-width="2"/>
+                    </svg>
+                </div>
+                <h1>Boletas Digitales</h1>
+                <p class="subtitle">Sistema de Gestión Escolar - Escuela Técnica</p>
+            </div>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="dni">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <path d="M9 12H15M12 9V15M5 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        DNI / Usuario
+                    </label>
+                    <input type="text" id="dni" name="dni" placeholder="Ingrese su DNI" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 15V11M12 7H12.01M5 11C5 7.13401 8.13401 4 12 4C15.866 4 19 7.13401 19 11V16C19 17.6569 17.6569 19 16 19H8C6.34315 19 5 17.6569 5 16V11Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        Contraseña
+                    </label>
+                    <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
+                </div>
+                
+                <div id="errorMessage" class="error-message"></div>
+                
+                <button type="submit" class="btn-login">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 3H15C20 3 21 9 21 9V15C21 15 20 21 15 21H9C4 21 3 15 3 15V9C3 9 4 3 9 3Z" stroke="white" stroke-width="2"/>
+                        <path d="M12 12L15 15M15 15L18 18" stroke="white" stroke-width="2"/>
+                    </svg>
+                    Ingresar al Sistema
+                </button>
+            </form>
+            
+            <div class="login-footer">
+                <p>© 2026 Escuela Técnica - Sistema de Boletas Digitales</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+</body>
+</html>
