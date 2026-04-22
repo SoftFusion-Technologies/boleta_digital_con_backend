@@ -3,26 +3,27 @@ from sqlalchemy.orm import relationship
 from database import Base
 
 
-class Rol(Base):
-    __tablename__ = "rol"
+# Benjamin Orellana - 2026/04/20 - Se adapta el modelo Usuario al esquema real de tecnica_nro1.
+class PreguntaSeguridad(Base):
+    __tablename__ = "preguntas_seguridad"
+
     id = Column(Integer, primary_key=True)
-    nombre = Column(String(50), unique=True)
+    pregunta = Column(String(255), nullable=False)
 
 
+# Benjamin Orellana - 2026/04/20 - Se reemplaza el esquema viejo de usuarios por el esquema real con username y rol textual.
 class Usuario(Base):
     __tablename__ = "usuarios"
 
     id = Column(Integer, primary_key=True)
-    nombre = Column(String(100))
+    username = Column(String(50), unique=True, nullable=False)
+    password = Column(String(255), nullable=False)
+    rol = Column(String(30), nullable=False)
+    id_pregunta_seguridad = Column(Integer, ForeignKey("preguntas_seguridad.id"), nullable=True)
+    respuesta_seguridad_hash = Column(String(255), nullable=True)
+    email = Column(String(100), unique=True, nullable=True)
 
-    usuario = Column(String(50), unique=True)
-    dni = Column(String(20), unique=True)
-
-    password = Column(String(255))
-    rol_id = Column(Integer, ForeignKey("rol.id"))
-    activo = Column(Boolean, default=True)
-
-    rol = relationship("Rol")
+    pregunta_seguridad = relationship("PreguntaSeguridad")
 
 
 class Curso(Base):

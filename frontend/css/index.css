@@ -1,0 +1,128 @@
+/* Paleta de colores verde */
+:root {
+    --primary-green: #168c45;
+    --secondary-green: #2dab6c;
+    --tertiary-green: #4fc48d;
+    --dark-green: #151506;
+    --light-green: #f0f8f3;
+}
+
+/* Estilos para los colores verdes */
+.bg-primary-green {
+    background-color: var(--primary-green);
+}
+
+.bg-secondary-green {
+    background-color: var(--secondary-green);
+}
+
+.bg-tertiary-green {
+    background-color: var(--tertiary-green);
+}
+
+.bg-dark-green {
+    background-color: var(--dark-green);
+}
+
+.bg-light-green {
+    background-color: var(--light-green);
+}
+
+.btn-primary-green {
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+}
+
+.btn-primary-green:hover {
+    background-color: #127036;
+}
+
+.btn-outline-primary-green {
+    color: var(--primary-green);
+    border-color: var(--primary-green);
+}
+
+.btn-outline-primary-green:hover {
+    background-color: var(--primary-green);
+    color: white;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8fafc;
+}
+
+/* Estilos para el header */
+header {
+    background-color: var(--primary-green);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para las cards */
+.card {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los botones */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 10px 20px;
+}
+
+.btn-lg {
+    padding: 14px 25px;
+    font-size: 1.2rem;
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: var(--dark-green);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-text {
+        text-align: center;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Libretas de Años Anteriores */
+.year-card{
+    min-width:150px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.year-card:hover{
+    transform:scale(1.05);
+}
+
+#yearsContainer{
+    scroll-snap-type:x mandatory;
+}
+
+.year-card{
+    scroll-snap-align:start;
+}

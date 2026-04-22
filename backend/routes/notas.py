@@ -6,14 +6,14 @@ from database import get_db
 from models import Nota, Alumno, Materia, PreceptorCurso
 from schemas import NotaCreate
 from security import require_role
-
+from typing import List
 router = APIRouter(prefix="/notas")
 
 @router.post("/")
 def cargar_notas(
     alumno_id: int,
-    notas: list[NotaCreate],
-    user=Depends(require_role([2])),
+    notas: List[NotaCreate],
+        user=Depends(require_role([2])),
     db: Session = Depends(get_db)
 ):
 

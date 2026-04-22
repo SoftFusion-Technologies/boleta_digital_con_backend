@@ -19,11 +19,12 @@ def hash_password(password: str):
     return pwd_context.hash(password)
 
 
+# Benjamin Orellana - 10/04/2026 - Verifica password hasheado con fallback para usuarios legacy en texto plano
 def verify_password(password, hashed):
     try:
         return pwd_context.verify(password, hashed)
     except:
-        return password == hashed  # fallback temporal
+        return password == hashed
 
 
 # =========================

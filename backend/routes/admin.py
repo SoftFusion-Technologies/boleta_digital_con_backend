@@ -1,61 +1,60 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from sqlalchemy import or_
 
 from database import get_db
-from models import Usuario, Curso, Materia, Alumno, PreceptorCurso
-from security import require_role, hash_password
+from models import Usuario
+from security import hash_password
 
 router = APIRouter(prefix="/admin")
 
-# =========================
-# USUARIOS
-# =========================
 
+# Benjamin Orellana - 2026/04/20 - Alta mínima de usuarios alineada al esquema real de tecnica_nro1.
 @router.post("/usuarios")
 def crear_usuario(
-    nombre: str,
     username: str,
-    email: str,
     password: str,
-    rol_id: int,
-    db: Session = Depends(get_db),
-    user=Depends(require_role([1]))
+    rol: str,
+    email: str = None,
+    db: Session = Depends(get_db)
 ):
-    # 🔍 Validar duplicados
     existe = db.query(Usuario).filter(
-        or_(
-            Usuario.email == email,
-            Usuario.username == username
-        )
+        Usuario.username == username
     ).first()
 
     if existe:
-        raise HTTPException(status_code=400, detail="El usuario o email ya existe")
+        raise HTTPException(status_code=400, detail="El username ya existe")
+
+    if rol not in ["alumno", "preceptor", "jefe_preceptor", "administrador"]:
+        raise HTTPException(status_code=400, detail="Rol inválido")
 
     nuevo = Usuario(
-        nombre=nombre,
         username=username,
-        email=email,
         password=hash_password(password),
-        rol_id=rol_id,
-        activo=True
+        rol=rol,
+        email=email
     )
 
     db.add(nuevo)
     db.commit()
     db.refresh(nuevo)
 
-    return {"mensaje": "Usuario creado correctamente"}
+    return {
+        "mensaje": "Usuario creado correctamente",
+        "usuario": {
+            "id": nuevo.id,
+            "username": nuevo.username,
+            "rol": nuevo.rol,
+            "email": nuevo.email
+        }
+    }
 
 
+# Benjamin Orellana - 2026/04/20 - Listado mínimo de usuarios alineado al esquema real.
 @router.get("/usuarios")
 def listar_usuarios(
-    db: Session = Depends(get_db),
-    user=Depends(require_role([1]))
+    db: Session = Depends(get_db)
 ):
     return db.query(Usuario).all()
-
 
 @router.put("/usuarios/{id}/estado")
 def cambiar_estado(
